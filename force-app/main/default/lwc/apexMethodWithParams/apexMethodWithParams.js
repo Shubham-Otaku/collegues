@@ -1,7 +1,7 @@
 import { LightningElement } from 'lwc';
 import findContacts from '@salesforce/apex/ContactController.findContacts';
 
-export default class ApexImperativeMethodWithParams extends LightningElement {
+export default class ApexMethodWithParams extends LightningElement {
     searchKey = '';
     contacts;
     error;
