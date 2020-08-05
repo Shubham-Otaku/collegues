@@ -6,7 +6,6 @@ import NAME_FIELD from '@salesforce/schema/Account.Name';
 
 export default class LdsCreateRecord extends LightningElement {
     accountId;
-
     name = '';
 
     handleNameChange(event) {

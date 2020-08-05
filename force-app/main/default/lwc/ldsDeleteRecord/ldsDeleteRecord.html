@@ -8,7 +8,7 @@
                         class="slds-var-m-vertical_x-small"
                     >
                         <lightning-layout-item flexibility="grow">
-                            {account.Name}
+                            {account.Name} ( {account.Id} )
                         </lightning-layout-item>
                         <lightning-layout-item>
                             <lightning-button-icon
@@ -20,11 +20,6 @@
                     </lightning-layout>
                 </template>
             </div>
-        </template>
-        <template if:true={error}>
-            <c-error-panel errors={error}></c-error-panel>
-        </template>
-
-        
+        </template>        
     </lightning-card>
 </template>

@@ -5,6 +5,7 @@ import { deleteRecord } from 'lightning/uiRecordApi';
 import getAccountList from '@salesforce/apex/AccountController.getAccountList';
 export default class LdsDeleteRecord extends LightningElement {
     accounts;
+    contacts;
     error;
 
     /** Wired Apex result so it can be refreshed programmatically */
@@ -29,7 +30,7 @@ export default class LdsDeleteRecord extends LightningElement {
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Success',
-                        message: 'Account deleted',
+                        message: 'Record deleted',
                         variant: 'success'
                     })
                 );
