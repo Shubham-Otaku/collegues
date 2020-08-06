@@ -1,6 +1,6 @@
 import { LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { createRecord } from 'lightning/uiRecordApi';
+import { createRecord, updateRecord } from 'lightning/uiRecordApi';
 import ACCOUNT_OBJECT from '@salesforce/schema/Account';
 import NAME_FIELD from '@salesforce/schema/Account.Name';
 
@@ -37,5 +37,6 @@ export default class LdsCreateRecord extends LightningElement {
                     })
                 );
             });
+            eval("$A.get('e.force:refreshView').fire();");
     }
 }

@@ -11,7 +11,7 @@ export default class LdsDeleteRecord extends LightningElement {
     wiredAccountsResult;
 
     @wire(getAccountList)
-    wiredAccounts(result) {
+    wiredAccounts(result) {  
         this.wiredAccountsResult = result;
         if (result.data) {
             this.accounts = result.data;
