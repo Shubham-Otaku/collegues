@@ -8,7 +8,6 @@ export default class LdsDeleteRecord extends LightningElement {
     contacts;
     error;
 
-    /** Wired Apex result so it can be refreshed programmatically */
     wiredAccountsResult;
 
     @wire(getAccountList)
