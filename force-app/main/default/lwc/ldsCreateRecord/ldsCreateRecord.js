@@ -27,6 +27,7 @@ export default class LdsCreateRecord extends LightningElement {
                         variant: 'success'
                     })
                 );
+                this.dispatchEvent(new CustomEvent('submit'));
             })
             .catch((error) => {
                 this.dispatchEvent(
@@ -37,6 +38,5 @@ export default class LdsCreateRecord extends LightningElement {
                     })
                 );
             });
-            eval("$A.get('e.force:refreshView').fire();");
     }
 }
