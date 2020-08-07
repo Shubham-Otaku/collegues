@@ -1,4 +1,4 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement, wire, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { refreshApex } from '@salesforce/apex';
 import { deleteRecord } from 'lightning/uiRecordApi';
@@ -44,5 +44,8 @@ export default class LdsDeleteRecord extends LightningElement {
                     })
                 );
             });
+    }
+    @api handleRefresh(isRefresh){
+        if(isRefresh) refreshApex(this.wiredAccountsResult);
     }
 }
