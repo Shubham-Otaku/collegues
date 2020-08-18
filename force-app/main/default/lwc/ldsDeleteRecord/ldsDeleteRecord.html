@@ -1,14 +1,19 @@
 <template>
+    <template if:true={accounts}></template>
     <lightning-card title="LdsDeleteRecord" icon-name="standard:record">
-        <template if:true={accounts}>
+        
             <div class="slds-var-m-around_medium">
                 <template for:each={accounts} for:item="account">
                     <lightning-layout
                         key={account.Id}
-                        class="slds-var-m-vertical_x-small"
+                        class="slds-var-m-vertical_x-small slds-grid"
                     >
-                        <lightning-layout-item flexibility="grow">
-                            {account.Name} ( {account.Id} )
+                        <lightning-layout-item flexibility="grow" class='slds-col'>
+                            <h3>{account.Name} ( {account.Id} )</h3>
+                            <div class=''>
+                                <a class='slds-p-horizontal_small' onclick={navigateToViewAccountPage} data-record-id={account.Id}>View Record</a>
+                                <a class='slds-p-horizontal_small' onclick={createContactOnClick} data-record-id={account.Id}>Create Contact</a>
+                            </div>
                         </lightning-layout-item>
                         <lightning-layout-item>
                             <lightning-button-icon
@@ -20,6 +25,6 @@
                     </lightning-layout>
                 </template>
             </div>
-        </template>        
     </lightning-card>
+</template>        
 </template>

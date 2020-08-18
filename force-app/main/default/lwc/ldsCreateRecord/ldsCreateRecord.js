@@ -38,5 +38,6 @@ export default class LdsCreateRecord extends LightningElement {
                     })
                 );
             });
+            this.template.querySelector('form').reset();
     }
 }

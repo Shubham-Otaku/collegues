@@ -2,8 +2,10 @@ import { LightningElement, wire, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { refreshApex } from '@salesforce/apex';
 import { deleteRecord } from 'lightning/uiRecordApi';
+import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils';
 import getAccountList from '@salesforce/apex/AccountController.getAccountList';
-export default class LdsDeleteRecord extends LightningElement {
+import { NavigationMixin } from 'lightning/navigation';
+export default class LdsDeleteRecord extends NavigationMixin(LightningElement) {
     accounts;
     contacts;
     error;
@@ -22,8 +24,44 @@ export default class LdsDeleteRecord extends LightningElement {
         }
     }
 
+    createContactOnClick(event){
+        const recordId = event.target.dataset.recordId;
+        // const selectedEvent = new CustomEvent("makeVisible", {detail: recordId});
+        // this.dispatchEvent(selectedEvent);
+        // console.log( "it works");
+        
+        this[NavigationMixin.Navigate]({
+            type: 'standard__objectPage',
+            attributes: {
+                objectApiName: 'Contact',
+                actionName: 'new',
+
+            },
+            state: {
+                defaultFieldValues: encodeDefaultFieldValues({
+                    AccountId: recordId
+                })
+            }
+        });
+    }
+    
+    navigateToViewAccountPage(event){
+        const recordId = event.target.dataset.recordId;
+        console.log(recordId);
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: recordId,
+                objectApiName: 'Account',
+                actionName: 'view'
+            },
+        });
+    }
+
     deleteAccount(event) {
+        
         const recordId = event.target.dataset.recordid;
+        console.log("it works" + recordId);
         deleteRecord(recordId)
             .then(() => {
                 this.dispatchEvent(

@@ -54,7 +54,7 @@ export default class CreateContact extends LightningElement {
                 this.dispatchEvent(
                     new ShowToastEvent({                        
                         title: 'Error creating record',
-                        message: error.message,
+                        message: 'Error occured',
                         variant: 'error',
                     }),
                 );
