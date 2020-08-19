@@ -1,7 +1,7 @@
 import { LightningElement, api, wire } from 'lwc';
 import getContactList from '@salesforce/apex/ContactSearchController.getContactList';
 
-export default class Lwcwithlds extends LightningElement {
+export default class containercmp extends LightningElement {
      // Flexipage provides recordId and objectApiName
      @api recordId;
      @api objectApiName;
