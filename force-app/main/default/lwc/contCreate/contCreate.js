@@ -49,6 +49,7 @@ export default class CreateContact extends LightningElement {
                         variant: 'success',
                     }),
                 );
+                this.dispatchEvent(new CustomEvent('submit'));
             })
             .catch(error => {
                 this.dispatchEvent(

@@ -1,5 +1,5 @@
 <template>
-    <lightning-card title="Account Record Form using LDS (Dynamic)" icon-name="standard:Account">
+    <lightning-card title="Account Record" icon-name="standard:Account">
 
         <div class="slds-m-around_medium">
             <lightning-record-form object-api-name={objectApiName} record-id={recordId} fields={fields}></lightning-record-form>
@@ -7,12 +7,12 @@
     </lightning-card>
     <lightning-card>    
         <template if:true={recordId}>
-            <c-cont-Create accountid={recordId}> </c-cont-Create>
+            <c-cont-Create accountid={recordId} onsubmit={handleSubmit}> </c-cont-Create>
         </template>
     </lightning-card>
     
     <template if:true={contacts.data}>
-        <lightning-card title="Related Contacts using Wire decorator" icon-name="standard:Contact">
+        <lightning-card title="Related Contacts" icon-name="standard:Contact">
             <table class="slds-table slds-table_bordered slds-table_striped">
                 <thead>
                     <tr>

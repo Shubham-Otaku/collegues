@@ -1,12 +1,15 @@
 import { LightningElement, api, wire } from 'lwc';
 import getContactList from '@salesforce/apex/ContactSearchController.getContactList';
+import { refreshApex } from '@salesforce/apex';
 
 export default class containercmp extends LightningElement {
-     // Flexipage provides recordId and objectApiName
      @api recordId;
      @api objectApiName;
      fields = ['Name', 'Industry', 'AccountNumber'];
-     //Call Apex method using Wire Decorator with a Parameter
      @wire(getContactList, { accId: '$recordId' })
      contacts;
+
+     handleSubmit(){
+          refreshApex(this.contacts);
+     }
 }
